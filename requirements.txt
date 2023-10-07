@@ -1,0 +1,6 @@
+matplotlib
+numpy
+pandas
+google-cloud-storage
+jupyterlab
+openpyxl
