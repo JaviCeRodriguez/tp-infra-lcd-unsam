@@ -21,8 +21,8 @@ def create_bigquery_dataset(dataset_name):
 
 client = bigquery.Client()
 
-datasets_name = ['ventas_raw', 'dwh_ventas']
+datasets_name = ['data_raw','data_warehouse','dmt_finanzas','dmt_marketing','dmt_suministros']
 location = 'US'
 
-for ds in datasets_name:
-    create_bigquery_dataset(ds)
+for name in datasets_name:
+    create_bigquery_dataset(name)

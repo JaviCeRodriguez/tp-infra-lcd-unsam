@@ -20,21 +20,21 @@ if __name__ == '__main__':
     PROJECT_ID = "usm-infra-grupo1"
     fact_tables = ['fact_venta', 'fact_stock', 'fact_deuda']
     dim_tables = ['dim_producto','dim_cliente']
-    ds_dwh = "dwh_ventas"
+    ds_dwh = "data_warehouse"
 
-    sql_fact_venta = f"""SELECT * FROM {PROJECT_ID}.ventas_raw.venta;"""
+    sql_fact_venta = f"""SELECT * FROM {PROJECT_ID}.data_raw.venta;"""
 
-    sql_fact_stock = f"""SELECT * FROM {PROJECT_ID}.ventas_raw.stock
+    sql_fact_stock = f"""SELECT * FROM {PROJECT_ID}.data_raw.stock
     ;"""
 
-    sql_fact_deuda = f"""SELECT * FROM {PROJECT_ID}.ventas_raw.deuda;
+    sql_fact_deuda = f"""SELECT * FROM {PROJECT_ID}.data_raw.deuda;
     """
 
     sql_dim_producto = f"""SELECT distinct(stock.SKU_codigo), stock.SKU_descripcion
-        FROM {PROJECT_ID}.ventas_raw.stock as stock
+        FROM {PROJECT_ID}.data_raw.stock as stock
     ;"""
 
-    sql_dim_cliente = f"""SELECT * FROM {PROJECT_ID}.ventas_raw.cliente
+    sql_dim_cliente = f"""SELECT * FROM {PROJECT_ID}.data_raw.cliente
     """
 
     for fact in fact_tables:

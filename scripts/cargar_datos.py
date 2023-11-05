@@ -75,14 +75,14 @@ bq_table_schema_cliente = [
 client = bigquery.Client()
 
 if __name__ == '__main__':
-    cant_dist = 4
-    cant_dias = 14
+    cant_dist = 5
+    cant_dias = 15
     PROJECT_ID = "usm-infra-grupo1"
     dist_string = "g1_distribuidor_"
     storage = "gs://"
     tables = ['stock', 'venta', 'deuda', 'cliente']
     fecha_actual = datetime.now()
-    ds_raw = "ventas_raw"
+    ds_raw = "data_raw"
 
     for distribuidor in range(1, cant_dist):
         print(f"\n======= DISTRIBUIDOR {distribuidor} =======")
