@@ -25,19 +25,17 @@ if __name__ == '__main__':
     direcciones = dict(zip(datamarts, ds_dwh))
     print(direcciones)
     
-    sql_finanzas = f"""
+    sql_suministros = f"""
         SELECT
+            stock.codigo_sucursal,
+            sucursal.provincia,
             stock.stock_unidades,
-            venta.venta_unidades,
-            venta.fecha_cierre_comercial,
-            producto.SKU_descripcion,
+            stock.fecha_cierre_comercial,
+            stock.SKU_descripcion,
             stock.n_distribuidor
         FROM
-            {PROJECT_ID}.{DW_DATASET}.fact_venta AS venta
-            INNER JOIN {PROJECT_ID}.{DW_DATASET}.fact_stock AS stock ON
-                venta.fecha_cierre_comercial = stock.fecha_cierre_comercial AND
-                venta.codigo_sucursal = stock.codigo_sucursal
-            INNER JOIN {PROJECT_ID}.{DW_DATASET}.dim_producto AS producto ON venta.SKU_codigo = producto.SKU_codigo;
+            {PROJECT_ID}.{DW_DATASET}.fact_stock AS stock
+            INNER JOIN {PROJECT_ID}.{DW_DATASET}.dim_sucursal AS sucursal ON stock.codigo_sucursal = sucursal.codigo_sucursal;
     """
     
     sql_marketing = f"""
@@ -56,7 +54,7 @@ if __name__ == '__main__':
             INNER JOIN {PROJECT_ID}.{DW_DATASET}.dim_producto AS producto ON venta.SKU_codigo = producto.SKU_codigo;
     """
 
-    sql_suministros = f"""
+    sql_finanzas = f"""
         SELECT
             cliente.codigo_cliente,
             cliente.ciudad,

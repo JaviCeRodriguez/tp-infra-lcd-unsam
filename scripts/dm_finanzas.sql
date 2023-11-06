@@ -1,22 +1,24 @@
--- Fact table venta
-SELECT * FROM usm-infra-grupo1.data_warehouse.fact_venta AS venta;
+-- Fact table Deuda
+SELECT * FROM usm-infra-grupo1.data_warehouse.fact_deuda AS deuda;
 
--- Fact table Stock
-SELECT * FROM usm-infra-grupo1.data_warehouse.fact_stock AS stock;
-
--- Dim table Productos
-SELECT * FROM usm-infra-grupo1.data_warehouse.dim_producto AS producto;
+-- Dim table Cliente
+SELECT * FROM usm-infra-grupo1.data_warehouse.dim_cliente AS cliente;
 
 -- Data Mart Suministros
 SELECT
-	stock.stock_unidades,
-	venta.venta_unidades,
-	venta.fecha_cierre_comercial,
-	producto.SKU_descripcion,
-	stock.n_distribuidor
+	cliente.codigo_cliente,
+	cliente.ciudad,
+	cliente.provincia,
+	cliente.estado,
+	cliente.fecha_alta,
+	cliente.fecha_baja,
+	cliente.tipo_negocio,
+	cliente.lat,
+	cliente.long,
+	deuda.deuda_vencida,
+	deuda.deuda_tota,
+	deuda.n_distribuidor,
+	deuda.fecha_cierre_comercial,
 FROM
-	usm-infra-grupo1.data_warehouse.fact_venta AS venta
-	INNER JOIN usm-infra-grupo1.data_warehouse.fact_stock AS stock ON
-		venta.fecha_cierre_comercial = stock.fecha_cierre_comercial AND
-		venta.codigo_sucursal = stock.codigo_sucursal
-	INNER JOIN usm-infra-grupo1.data_warehouse.dim_producto AS producto ON venta.SKU_codigo = producto.SKU_codigo;
+	usm-infra-grupo1.data_warehouse.dim_cliente AS cliente
+	INNER JOIN usm-infra-grupo1.data_warehouse.fact_deuda AS deuda ON cliente.codigo_cliente = deuda.codigo_cliente;

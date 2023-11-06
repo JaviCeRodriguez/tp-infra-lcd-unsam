@@ -19,7 +19,7 @@ def create_table(PROJECT_ID, TARGET_TABLE_ID, QUERY, WRITE_METHOD):
 if __name__ == '__main__':
     PROJECT_ID = "usm-infra-grupo1"
     fact_tables = ['fact_venta', 'fact_stock', 'fact_deuda']
-    dim_tables = ['dim_producto','dim_cliente']
+    dim_tables = ['dim_producto','dim_cliente', 'dim_sucursal']
     ds_dwh = "data_warehouse"
 
     sql_fact_venta = f"""SELECT * FROM {PROJECT_ID}.data_raw.venta;"""
@@ -35,6 +35,13 @@ if __name__ == '__main__':
     ;"""
 
     sql_dim_cliente = f"""SELECT * FROM {PROJECT_ID}.data_raw.cliente
+    """
+
+    sql_dim_sucursal = f"""
+        SELECT
+            DISTINCT(cliente.codigo_sucursal),
+            cliente.provincia,
+        FROM {PROJECT_ID}.data_raw.cliente as cliente;
     """
 
     for fact in fact_tables:
