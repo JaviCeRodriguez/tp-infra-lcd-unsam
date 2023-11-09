@@ -41,6 +41,7 @@ if __name__ == '__main__':
     sql_marketing = f"""
         SELECT
             venta.codigo_cliente,
+            venta.codigo_sucursal,
             venta.venta_unidades,
             venta.venta_importe,
             venta.fecha_cierre_comercial,
@@ -56,18 +57,25 @@ if __name__ == '__main__':
 
     sql_finanzas = f"""
         SELECT
-            cliente.codigo_cliente,
+            cliente.codigo_cliente, 
             cliente.ciudad,
             cliente.provincia,
             cliente.estado,
             cliente.fecha_alta,
             cliente.fecha_baja,
             cliente.tipo_negocio,
-            cliente.lat,
+            cliente.lat, 
             cliente.long,
+            cliente.cuit,
+            cliente.nombre_cliente,
+            cliente.direccion,
+            cliente.telefono,
+            cliente.razon_social,
+            cliente.codigo_sucursal,
             deuda.deuda_vencida,
-            deuda.deuda_tota,
-            deuda.n_distribuidor
+            deuda.deuda_total,
+            deuda.n_distribuidor,
+            deuda.fecha_cierre_comercial
         FROM
             {PROJECT_ID}.{DW_DATASET}.dim_cliente AS cliente
             INNER JOIN {PROJECT_ID}.{DW_DATASET}.fact_deuda AS deuda ON cliente.codigo_cliente = deuda.codigo_cliente

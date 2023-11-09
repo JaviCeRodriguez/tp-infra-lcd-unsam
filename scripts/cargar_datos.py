@@ -46,7 +46,7 @@ bq_table_schema_deuda = [
     bigquery.SchemaField("codigo_cliente", "INTEGER"),
     bigquery.SchemaField("fecha_cierre_comercial", "DATETIME"),
     bigquery.SchemaField("deuda_vencida", "FLOAT"),
-    bigquery.SchemaField("deuda_tota", "FLOAT"),
+    bigquery.SchemaField("deuda_total", "FLOAT"),
     bigquery.SchemaField("n_distribuidor", "INTEGER"),
 ]
 
@@ -75,8 +75,8 @@ bq_table_schema_cliente = [
 client = bigquery.Client()
 
 if __name__ == '__main__':
-    cant_dist = 5
-    cant_dias = 15
+    cant_dist = 6 # 6 - 1
+    cant_dias = 91
     PROJECT_ID = "usm-infra-grupo1"
     dist_string = "g1_distribuidor_"
     storage = "gs://"

@@ -1,5 +1,5 @@
 city,lat,lng,country,iso2,admin_name,capital,population,population_proper
-Buenos Aires,-34.5997,-58.3819,Argentina,AR,"Buenos Aires, Ciudad Autónoma de",primary,16710000,3054300
+Ciudad Autónoma de Buenos Aires,-34.5997,-58.3819,Argentina,AR,"Buenos Aires, Ciudad Autónoma de",primary,16710000,3054300
 Córdoba,-31.4167,-64.1833,Argentina,AR,Córdoba,admin,1565112,1329604
 Rosario,-32.9575,-60.6394,Argentina,AR,Santa Fe,minor,1276000,1193605
 Santiago del Estero,-27.7833,-64.2667,Argentina,AR,Santiago del Estero,admin,911506,430280

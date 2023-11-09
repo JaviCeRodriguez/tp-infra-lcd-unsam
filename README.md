@@ -9,7 +9,7 @@ TP Final para materia de Licenciatura en Ciencia de Datos - 2do Cuatrimestre 202
 >> cd ./tp-infra-lcd-unsam
 >> python -m virtualenv venv
 >> venv/Scripts/activate
-(venv) >> pip install -r requirements.txt 
+(venv) >> pip install -r requirements.txt
 ```
 
 A partir de acá podrás leer y ejecutar las notebooks y scripts Python. Para las notebooks, se pueden visualizar desde Visual Studio Code o usar Jupyter Lab:
@@ -18,7 +18,10 @@ A partir de acá podrás leer y ejecutar las notebooks y scripts Python. Para la
 (venv) >> jupyter lab
 ```
 
-## Objetivo del TP Final
+## Equipo
 
-WIP
-
+- Ulrich, Marcelo
+- Rodriguez, Javier C.
+- Oliaro Vera, Lucas
+- Fraga, Julián
+- Benitez, Nahuel
