@@ -25,3 +25,7 @@ A partir de acá podrás leer y ejecutar las notebooks y scripts Python. Para la
 - Oliaro Vera, Lucas
 - Fraga, Julián
 - Benitez, Nahuel
+
+## Presentacion
+
+[Clic para ver el documento](Grupo%20Sarasa%20SRL%20-%20Argentina%20Ideal.pdf)
